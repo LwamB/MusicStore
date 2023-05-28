@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MusicStore.Models
 {
     public class Album
     {
+
         public int AlbumID { get; set; }
+        [Display(Name = "Genre")]
         public int GenreID { get; set; }
+        [Display(Name = "Artist")]
         public int ArtistID { get; set; }
         public string Title { get; set; }
         public int Price { get; set; }
