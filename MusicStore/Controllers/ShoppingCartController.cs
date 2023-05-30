@@ -42,5 +42,22 @@ namespace MusicStore.Controllers
             cart.RemoveFromCart(id);
             return RedirectToAction("Index");
         }
+
+        public IActionResult AddOne(int id)
+        {
+            var shoppingCart = new ShoppingCart(HttpContext, _context);
+            shoppingCart.ChangeCount(id, 1);
+            return RedirectToAction("Index");
+        }
+
+
+
+        public IActionResult RemoveOne(int id)
+        {
+            var shoppingCart = new ShoppingCart(HttpContext, _context);
+            shoppingCart.ChangeCount(id, -1);
+            return RedirectToAction("Index");
+        }
+
     }
 }

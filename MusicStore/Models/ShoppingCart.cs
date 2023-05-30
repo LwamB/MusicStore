@@ -76,6 +76,25 @@ namespace MusicStore.Models
             return itemCount;
         }
 
+        public void ChangeCount(int cartId, int count)
+        {
+            var cartItem = _context.CartItems.Where(
+            c => c.CartKey == _cartKey && c.CartItemID == cartId).FirstOrDefault();
+
+
+
+            if (cartItem.Count == 1 && count == -1)
+            {
+                _context.CartItems.Remove(cartItem);
+            }
+            else
+            {
+                cartItem.Count += count;
+                _context.CartItems.Update(cartItem);
+            }
+            _context.SaveChanges();
+        }
+
         public void EmptyCart()
         {
             var cartItems = _context.CartItems.Where(
