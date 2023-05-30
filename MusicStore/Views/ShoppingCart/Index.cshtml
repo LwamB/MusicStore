@@ -55,8 +55,12 @@
 
                 </td>
                 <td>
-                    <a asp-controller="ShoppingCart" asp-action="RemoveFromCart" asp-route-id="@item.CartItemID">
-          Remove from cart
+                    <a asp-controller="ShoppingCart" asp-action="RemoveOne" asp-route-id="@item.CartItemID">
+                        -
+                    </a> | <a asp-controller="ShoppingCart" asp-action="AddOne" asp-route-id="@item.CartItemID">
+          + 
+                    </a>| <a asp-controller="ShoppingCart" asp-action="RemoveFromCart" asp-route-id="@item.CartItemID">
+          Remove 
                     </a>
                 </td>
               
@@ -75,7 +79,7 @@
 
         </th>
         <th>
-            @(total) euro
+            <b>@Model.Sum(a=>a.Album.Price * a.Count) euro</b>
         </th>
         <th></th>
     </tr>

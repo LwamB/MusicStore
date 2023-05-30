@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Albums";
 }
+@using MusicStore.Helpers
 <h1>Albums</h1>
 <h2>@ViewData["GenreID"] - Albums</h2>
 <div class="text-center">
@@ -13,7 +14,7 @@
                     <br />&nbsp;<br />
                         <img alt="@album.Title" src="~/content/@album.AlbumArtUrl" width="100" />
                         <br />&nbsp;<br />
-                        <div id="title">@album.Title</div>
+                        <div id="title">@MyHelper.Truncate(album.Title, 20)</div>
                     <br />&nbsp;<br />
                     </a>
                 </li>
